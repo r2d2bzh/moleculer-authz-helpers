@@ -1,1 +1,3 @@
-= Moleculer preflight mixin
+= Moleculer authorization helpers
+
+The current authorization strategy used by R2D2BZH is to operate a preflight from the API gateway before it calls an action from a backend service.
