@@ -1,3 +1,19 @@
 = Moleculer authorization helpers
 
-The current authorization strategy used by R2D2BZH is to operate a preflight from the API gateway before it calls an action from a backend service.
+The current authorization strategy used by the R2D2 stack is to operate a preflight from the API gateway before it calls an action from a backend service.
+These preflight actions can either decide themselves if the call is authorized or request other services for an authorization.
+
+These requests are sent through Moleculer events and services which subscribe to these events will either reply with a boolean (true = authorized, false = forbidden) or will not replied if they cannot answer.
+An authorization request is considered successful if at least one service has authorized the request and no service has forbidden the request (which means that if nobody answered, the request is implicitly forbidden).
+
+Currently, this library provides the following helpers:
+
+* `addPreflightMixin` to add a preflight mixin in a service schema
+* `someRequestsFailed` to decide whether one or more authorization requests have all succeeded based on the answers provided by the subscribers
+* `requestAuthorizations` to send multiple authorization requests at once
+
+== `addPreflightMixin`
+
+== `someRequestsFailed`
+
+== `requestAuthorizations`
