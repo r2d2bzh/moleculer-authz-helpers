@@ -1,11 +1,12 @@
+import cloneDeep from 'lodash/cloneDeep';
 import moleculer from 'moleculer';
 const {
   Service,
   Errors: { MoleculerError },
 } = moleculer;
 
-export default (serviceSpecification) => {
-  const { actions } = serviceSpecification;
+export default (serviceSchema) => {
+  const { actions } = serviceSchema;
   const actionsWithPreflight = Object.entries(actions).filter(
     ([, actionSpecification]) => actionSpecification?.rest && !actionSpecification?.preflight?.skip
   );
@@ -28,8 +29,11 @@ export default (serviceSpecification) => {
     ];
   });
 
-  serviceSpecification.actions = Service.mergeSchemaActions(
-    Object.fromEntries(preflightActions),
-    serviceSpecification.actions
-  );
+  const schema = cloneDeep(serviceSchema);
+
+  schema.mixins = [ ...(serviceSchema.mixins || []), {
+    actions: Object.fromEntries(preflightActions),
+  } ];
+
+  return schema;
 };
