@@ -1,19 +1,86 @@
+:source-highlighter: highlightjs
+:sectnums:
+:toc: left
+
 = Moleculer authorization helpers
 
-The current authorization strategy used by the R2D2 stack is to operate a preflight from the API gateway before it calls an action from a backend service.
-These preflight actions can either decide themselves if the call is authorized or request other services for an authorization.
+The current authorization strategy used by the R2D2 stack is to operate a preflight from the API gateway before it actually calls an action of a backend service.
+These preflight actions can either decide themselves if the call is authorized or ask other services for an authorization.
 
-These requests are sent through Moleculer events and services which subscribe to these events will either reply with a boolean (true = authorized, false = forbidden) or will not replied if they cannot answer.
+These requests are sent through Moleculer events.
+Services subscribing to these events will either reply with a boolean (`true` = authorized, `false` = forbidden) or will not reply if they cannot answer (`undefined` answer).
 An authorization request is considered successful if at least one service has authorized the request and no service has forbidden the request (which means that if nobody answered, the request is implicitly forbidden).
 
 Currently, this library provides the following helpers:
 
-* `addPreflightMixin` to add a preflight mixin in a service schema
-* `someRequestsFailed` to decide whether one or more authorization requests have all succeeded based on the answers provided by the subscribers
+* `addPreflightMixin` to build and add a preflight mixin in a service schema
+* `isAuthorized` to decide whether one or more authorization requests have all succeeded based on the answers provided by the subscribers
 * `requestAuthorizations` to send multiple authorization requests at once
 
 == `addPreflightMixin`
 
-== `someRequestsFailed`
+This helper adds a service mixin used to generate preflight actions for actions exposed through rest.
+It takes a Moleculer service schema as a parameter and return the same service schema with the mixin added.
+
+NOTE: A preflight action takes the same parameters as its action.
+
+To define a preflight handler, you must add a preflight attribute to an action:
+
+[source,javascript]
+----
+{
+  name: 'my-service',
+  actions: {
+    'my-action': {
+      handler: myActionHandler(),
+      rest: {},
+      preflight: {
+        handler: (ctx) => {
+          // do preflight checks
+          // possibly request for some authorizations through Moleculer events
+        }
+      }
+    },
+  },
+}
+----
+
+[NOTE]
+====
+A preflight action declaration can be skipped:
+
+[source,javascript]
+----
+preflight: {
+  skip: true,
+},
+----
+====
+
+== `isAuthorized`
+
+This helper decides whether or not something is authorized based on the answers to one or more authorization requests.
+It implements the following rules:
+
+* an authorization answer can be one of:
+** `undefined`
+** `Boolean`
+** `Array`
+** `Boolean[]`
+** `Boolean[][]`
+** `Boolean[][]...`
+* `undefined` answers are ignored
+* if any answer is `false`, the whole authorization process fails
+* if no answer was provided, the whole authorization process fails
 
 == `requestAuthorizations`
+
+This helper operates multiple authorization requests at once and returns a promise which result can be handled by `isAuthorized`.
+
+[source,javascript]
+----
+requestAuthorization(moleculerContext)([
+  { eventName: 'can-user-enter-car' },
+  { eventName: 'can-user-start-car'}
+]).then(isAuthorized); // true | false
+----

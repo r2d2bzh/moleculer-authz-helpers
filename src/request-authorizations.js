@@ -1,2 +1,2 @@
 export default (ctx) => (requests) =>
-  Promise.all(Object.entries(requests).map((eventName, { payload, opts }) => ctx.emit(eventName, payload, opts)));
+  Promise.all(requests.map(({ eventName, parameters, options }) => ctx.emit(eventName, parameters, options)));

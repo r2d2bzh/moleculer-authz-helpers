@@ -1,4 +1,4 @@
-import cloneDeep from 'lodash/cloneDeep';
+import cloneDeep from 'lodash/cloneDeep.js';
 import moleculer from 'moleculer';
 const {
   Service,
@@ -11,9 +11,9 @@ export default (serviceSchema) => {
     ([, actionSpecification]) => actionSpecification?.rest && !actionSpecification?.preflight?.skip
   );
 
-  const missingPreflight = actionsWithPreflight.filter(([, actionSpecification]) =>
-    Boolean(actionSpecification?.preflight?.handler)
-  );
+  const missingPreflight = actionsWithPreflight
+    .filter(([, actionSpecification]) => !actionSpecification?.preflight?.handler)
+    .map(([actionName]) => actionName);
 
   if (missingPreflight.length) {
     throw new MoleculerError('missing preflight handler', 500, 'MISSING_PREFLIGHT', { missingPreflight });
@@ -31,9 +31,15 @@ export default (serviceSchema) => {
 
   const schema = cloneDeep(serviceSchema);
 
-  schema.mixins = [ ...(serviceSchema.mixins || []), {
-    actions: Object.fromEntries(preflightActions),
-  } ];
+  /**
+   * use moleculer mixin mechanism to inject the new actions
+   */
+  schema.mixins = [
+    ...(serviceSchema.mixins || []),
+    {
+      actions: Object.fromEntries(preflightActions),
+    }
+  ];
 
   return schema;
 };
