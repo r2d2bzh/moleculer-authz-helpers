@@ -1,6 +1,6 @@
 {
   "name": "@r2d2bzh/moleculer-authz-helpers",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Moleculer mixin to implement preflight runner",
   "main": "index.js",
   "type": "module",
@@ -10,6 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@r2d2bzh/js-rules": "^0.7.1",
     "ava": "^3.15.0",
