@@ -1,0 +1,17 @@
+language: node_js
+sudo: false
+node_js:
+- 16
+install:
+- npm i
+script:
+- npm t
+deploy:
+  provider: npm
+  email: gautaz@users.noreply.github.com
+  on:
+    tags: true
+    repo: r2d2bzh/moleculer-authz-helpers
+  skip_cleanup: 'true'
+  api_key:
+    secure: "No0paLVObeEME39Kl8jyfX7r+qpzqg8aZtzozDlIyemhvZefzx4tFQo0DWWFxwGw5k5Hd75XlLmN9ezHYuzAgBETdE4DPVvu87C9T87tBTSYCpEgOuHrxY9uAm1Dr6+gvojE79ltxYzatWePwn+bvuO7me1ms9TqOLy7UBAqJJpNWLGUEyLIRYkAZvykv4l1IIrFGaiYxg/r9iQ9hbsdvswbPF6hAju7Jm7vKHzoP0ThKFinaf2W08gBadcDVPS85Qd+ccZDvaGsF50Ha3rHJrceF+ocRwLjWxlHURpEbaD99vPj9lkTxARIuR5chBb+XoSJyH0FKhHO8iCYJJP1+uuQknXZeburL4fO9KMkcP6zNPQSOyaEFMU6U60fWAUPs28hVIb3yVHyOGs5C2EwGwAQpLHBj9AhTJMcBnJAEwnsz3MM0FTZ9M/PpaacUcS8i/Wk5igNO7avInCGSzcLsI6jxBVu6PMnI4Pb/PGYegQPBgfudFHA5Ayj63llcaUsriCE8bl0/sIqvW18PAKBN9oYJVr9Yz4aaAlv/8eNagloJxbFMkSuvfDgVhBwqvAy0jHuwLwtnDXv9FjAWQP9YFMAHbGhdQTkA8daO7fv1V/5mYujDhYt1d2htLMBQVLWfYy9UHN3iHXE9BWZ9cRbyHgdAdIKAP/nsDy6L7tPgwU="
