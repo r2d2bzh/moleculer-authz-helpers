@@ -6,13 +6,12 @@ test('get a MISSING_PREFLIGHT when a preflight action is missing for an exposed 
     t.throws(() => addPreflightMixin({
       actions: {
         'exposed-action': {
-          rest: {},
-        },
-        'exposed-skipped-action': {
-          rest: {},
-          preflight: {
-            skip: true,
+          rest: {
+            authorization: false,
           },
+        },
+        'exposed-action-missing-preflight': {
+          rest: {},
         },
       },
     }))
@@ -25,9 +24,7 @@ test('an exposed action is given a preflight', (t) => {
       actions: {
         'exposed-action': {
           rest: {},
-          preflight: {
-            handler: () => {},
-          },
+          preflight: () => {},
         },
         'exposed-action-with-params': {
           rest: {},
@@ -39,4 +36,8 @@ test('an exposed action is given a preflight', (t) => {
       },
     })
   );
+});
+
+test('no error if no action is defined', (t) => {
+  t.snapshot(addPreflightMixin({}));
 });

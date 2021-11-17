@@ -5,29 +5,19 @@ const {
   Errors: { MoleculerError },
 } = moleculer;
 
-export default (serviceSchema) => {
-  const { actions } = serviceSchema;
-  const actionsWithPreflight = Object.entries(actions).filter(
-    ([, actionSpecification]) => actionSpecification?.rest && !actionSpecification?.preflight?.skip
+export const unsafeAddPreflightMixin = (serviceSchema) => {
+  const actionsWithPreflight = Object.entries(serviceSchema.actions || {}).filter(
+    ([, actionSpecification]) => actionSpecification?.preflight
   );
 
-  const missingPreflight = actionsWithPreflight
-    .filter(([, actionSpecification]) => !actionSpecification?.preflight?.handler)
-    .map(([actionName]) => actionName);
-
-  if (missingPreflight.length) {
-    throw new MoleculerError('missing preflight handler', 500, 'MISSING_PREFLIGHT', { missingPreflight });
-  }
-
-  const preflightActions = actionsWithPreflight.map(([actionName, { params, preflight } = {}]) => {
-    return [
+  const preflightActions = actionsWithPreflight.map(([actionName, { params, preflight } = {}]) => ([
       `${actionName}-preflight`,
       {
-        handler: preflight.handler,
+        handler: preflight instanceof Function ? preflight : preflight.handler,
         ...(params ? { params } : {}),
       },
-    ];
-  });
+    ])
+  );
 
   const schema = cloneDeep(serviceSchema);
 
@@ -42,4 +32,16 @@ export default (serviceSchema) => {
   ];
 
   return schema;
+};
+
+export default (serviceSchema) => {
+  Object.entries(serviceSchema.actions || {}).filter(
+    ([, actionSpecification]) => (actionSpecification?.rest?.authorization !== false)
+  ).forEach(([actionName, actionSpecification]) => {
+    if (!((actionSpecification?.preflight instanceof Function) || actionSpecification?.preflight?.handler)) {
+      throw new MoleculerError('missing preflight handler', 500, 'MISSING_PREFLIGHT', { actionName }); 
+    }
+  });
+
+  return unsafeAddPreflightMixin(serviceSchema);
 };

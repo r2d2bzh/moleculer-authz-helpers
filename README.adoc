@@ -20,9 +20,9 @@ Currently, this library provides the following helpers:
 == `addPreflightMixin`
 
 This helper adds a service mixin used to generate preflight actions for actions exposed through rest.
-It takes a Moleculer service schema as a parameter and return the same service schema with the mixin added.
+It takes a Moleculer service schema as a parameter and returns the same service schema with the mixin added.
 
-NOTE: A preflight action takes the same parameters as its action.
+NOTE: A preflight action takes the same parameters as the original action.
 
 To define a preflight handler, you must add a preflight attribute to an action:
 
@@ -38,24 +38,34 @@ To define a preflight handler, you must add a preflight attribute to an action:
         handler: (ctx) => {
           // do preflight checks
           // possibly request for some authorizations through Moleculer events
-        }
-      }
+        },
+      },
+    },
+    'my-other-action': {
+      handler: myOtherActionHandler(),
+      rest: {},
+      preflight: (ctx) => {},
     },
   },
 }
 ----
 
-[NOTE]
+[IMPORTANT]
 ====
-A preflight action declaration can be skipped:
+Only actions where authorization is disabled do not enforce a preflight:
 
 [source,javascript]
 ----
-preflight: {
-  skip: true,
-},
+{
+  'my-action': {
+    handler: myActionHandler(),
+    rest: {
+      authorization: false,
+    },
+  },
+}
 ----
-====
+==== 
 
 == `isAuthorized`
 
