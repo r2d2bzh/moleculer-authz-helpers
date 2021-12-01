@@ -15,9 +15,8 @@ const testSuite = [
   { mock: [true, undefined], expectation: true },
 ];
 
-testSuite.forEach((testCase, i) => 
-  test(
-    getTitle(testCase), (t) =>  t.snapshot(isAuthorized(testCase.mock), `Am I authorized ? ${testCase.expectation}`)
-  )
+testSuite.forEach((testCase) =>
+  test(getTitle(testCase), (t) => {
+    t.snapshot(isAuthorized(testCase.mock), `Am I authorized ? ${testCase.expectation}`);
+  })
 );
-

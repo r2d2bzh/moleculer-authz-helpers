@@ -3,18 +3,20 @@ import { addPreflightMixin } from '../index.js';
 
 test('get a MISSING_PREFLIGHT when a preflight action is missing for an exposed action', (t) => {
   t.snapshot(
-    t.throws(() => addPreflightMixin({
-      actions: {
-        'exposed-action': {
-          rest: {
-            authorization: false,
+    t.throws(() =>
+      addPreflightMixin({
+        actions: {
+          'exposed-action': {
+            rest: {
+              authorization: false,
+            },
+          },
+          'exposed-action-missing-preflight': {
+            rest: {},
           },
         },
-        'exposed-action-missing-preflight': {
-          rest: {},
-        },
-      },
-    }))
+      })
+    )
   );
 });
 
