@@ -1,6 +1,19 @@
-const ensureBoolArray = (something) =>
-  (Array.isArray(something) ? something : [something]).flat(Infinity).filter((response) => response !== undefined);
+const removeUnanswered = (authzAnswers) => authzAnswers.filter((answer) => answer !== undefined);
 
-const someRequestsFailed = (booleanArray) => !booleanArray.length || booleanArray.includes(false);
+const doAnswersAuthorize = (authzAnswers) =>
+  authzAnswers.length
+    ? authzAnswers.reduce((isAuthorized, authzAnswer) => isAuthorized && doesAnswerAuthorize(authzAnswer), true)
+    : false;
 
-export default (something) => !someRequestsFailed(ensureBoolArray(something));
+const doesAnswerAuthorize = function (something) {
+  switch (Object.prototype.toString.call(something)) {
+    case '[object Boolean]':
+      return something;
+    case '[object Array]':
+      return doAnswersAuthorize(removeUnanswered(something));
+    default:
+      return false;
+  }
+};
+
+export default doesAnswerAuthorize;
