@@ -35,7 +35,7 @@ export const unsafeAddPreflightMixin = (serviceSchema) => {
 
 export default (serviceSchema) => {
   Object.entries(serviceSchema.actions || {})
-    .filter(([, actionSpecification]) => actionSpecification?.rest?.authorization !== false)
+    .filter(([, actionSpecification]) => actionSpecification?.rest && actionSpecification.rest?.authorization !== false)
     .forEach(([actionName, actionSpecification]) => {
       if (!(actionSpecification?.preflight instanceof Function || actionSpecification?.preflight?.handler)) {
         throw new MoleculerError('missing preflight handler', 500, 'MISSING_PREFLIGHT', { actionName });

@@ -40,6 +40,16 @@ test('an exposed action is given a preflight', (t) => {
   );
 });
 
+test('an unexposed action is not given a preflight', (t) => {
+  t.snapshot(
+    addPreflightMixin({
+      actions: {
+        'unexposed-action': {},
+      },
+    })
+  );
+});
+
 test('no error if no action is defined', (t) => {
   t.snapshot(addPreflightMixin({}));
 });
