@@ -83,6 +83,19 @@ It implements the following rules:
 * if any answer is `false`, the whole authorization process fails
 * if no answer was provided, the whole authorization process fails
 
+The signature of `isAuthorized` is `(logger) => (answer) => true | false`:
+
+. the `logger` curried argument must provide a `warn` method used to issue warnings (default: `console`)
+. the `answer` curried argument is the authorization answer(s) to one or many authorization requests
+
+`isAuthorized` will raise a warning in the following cases:
+
+* an odd authorization answer was provided, known answers are:
+** `true`:: the request is authorized
+** `false`:: the request is denied
+** `undefined`:: the responder is not able to answer
+* multiple `true` or `false` answers were provided to the same authorization request
+
 == `requestAuthorizations`
 
 This helper operates multiple authorization requests at once and returns a promise which result can be handled by `isAuthorized`.
