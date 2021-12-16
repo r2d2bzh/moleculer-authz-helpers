@@ -1,6 +1,6 @@
 {
   "name": "@r2d2bzh/moleculer-authz-helpers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Moleculer mixin to implement preflight runner",
   "main": "index.js",
   "type": "module",
