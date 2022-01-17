@@ -2,7 +2,17 @@
 :sectnums:
 :toc: left
 
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
 = Moleculer authorization helpers
+
+== Rationale
 
 The current authorization strategy used by the R2D2 stack is to operate a preflight from the API gateway before it actually calls an action of a backend service.
 These preflight actions can either decide themselves if the call is authorized or ask other services for an authorization.
@@ -11,13 +21,36 @@ These requests are sent through Moleculer events.
 Services subscribing to these events will either reply with a boolean (`true` = authorized, `false` = forbidden) or will not reply if they cannot answer (`undefined` answer).
 An authorization request is considered successful if at least one service has authorized the request and no service has forbidden the request (which means that if nobody answered, the request is implicitly forbidden).
 
+[NOTE]
+====
+Events are used instead of actions as the authorization requester does not necessarily know which service answers its authorization requests.
+Moreover, multiple services could be responsible to answer one authorization request.
+====
+
+=== Use case
+
+The following example considers a shared todo list service.
+This service exposes an action to update a todo item and notify by email the todo list members of this update. +
+Depending on the user, the email sender will authorize or not the notification.
+
+The following services are at play:
+
+* todo-list: manage todo lists 
+* email-sender: send emails
+* members-service: manage users
+* moleculer-web: expose actions
+
+image::docs/use-case.svg[]
+
+== Helpers
+
 Currently, this library provides the following helpers:
 
 * `addPreflightMixin` to build and add a preflight mixin in a service schema
 * `isAuthorized` to decide whether one or more authorization requests have all succeeded based on the answers provided by the subscribers
 * `requestAuthorizations` to send multiple authorization requests at once
 
-== `addPreflightMixin`
+=== `addPreflightMixin`
 
 This helper adds a service mixin used to generate preflight actions for actions exposed through rest.
 It takes a Moleculer service schema as a parameter and returns the same service schema with the mixin added.
@@ -67,7 +100,7 @@ Only actions where authorization is disabled do not enforce a preflight:
 ----
 ==== 
 
-== `isAuthorized`
+=== `isAuthorized`
 
 This helper decides whether or not something is authorized based on the answers to one or more authorization requests.
 It implements the following rules:
@@ -96,7 +129,7 @@ The signature of `isAuthorized` is `(logger) => (answer) => true | false`:
 ** `undefined`:: the responder is not able to answer
 * multiple `true` or `false` answers were provided to the same authorization request
 
-== `requestAuthorizations`
+=== `requestAuthorizations`
 
 This helper operates multiple authorization requests at once and returns a promise which result can be handled by `isAuthorized`.
 
