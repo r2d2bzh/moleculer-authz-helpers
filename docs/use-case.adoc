@@ -1,0 +1,90 @@
+[plantuml, sequence-diagram]
+----
+hide footbox
+
+actor client
+participant web as "moleculer-web"
+participant todo as "todo-list"
+
+participant member as "members-service"
+participant email as "email-sender"
+
+client -> web: PUT /todo-service/update-and-notify
+hnote right
+* ID: 1
+* todo: 'new todo'
+end note
+
+activate web
+
+web -> todo: call update-and-notify-preflight
+activate todo
+
+todo -> todo: internal authorization checks
+
+todo -> todo: requestAuthorizations
+hnote right todo
+* { eventName: 'authz-is-member-of-todo-list', parameters: { userID, todoID } }
+* { eventName: 'authz-can-send-email', parameters: { userID } }
+end note
+activate todo
+
+== parallel processing ==
+group authz-is-member-of-todo-list
+
+todo -> todo: callEvent
+hnote right todo
+* ctx
+* { eventName: 'authz-is-member-of-todo-list', parameters: { userID, todoID } }
+end note
+activate todo
+
+todo --> member: emit(authz-is-member-of-todo-list)
+activate member
+member --> todo: eventCallback: true
+deactivate member
+todo --> todo: [true]
+deactivate todo
+
+end
+
+group authz-can-send-email
+
+todo -> todo: callEvent
+hnote right todo
+* ctx
+* { eventName: 'authz-can-send-email', parameters: { userID } }
+end note
+activate todo
+
+
+todo --> email: emit(authz-can-send-email)
+activate email
+email --> todo: eventCallback: true
+deactivate email
+todo --> todo: [true]
+deactivate todo
+
+end
+
+==  ==
+
+deactivate todo
+todo --> web: true
+
+deactivate todo
+
+web -> todo: call update-and-notify
+activate todo
+
+note right todo
+actual processing
+end note
+
+todo --> web: { ID: 1, todo: 'new todo' }
+deactivate todo
+
+web --> client: 200 { ID: 1, todo: 'new todo' }
+
+deactivate web
+----

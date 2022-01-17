@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1009px" preserveAspectRatio="none" style="width:960px;height:1009px;background:#FFFFFF;" version="1.1" viewBox="0 0 960 1009" width="960px" zoomAndPan="magnify"><defs><filter height="300%" id="frz5yaub5ie66" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="853.8004" style="stroke:#A80036;stroke-width:1.0;" width="10" x="248" y="130.1999"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="686.0003" style="stroke:#A80036;stroke-width:1.0;" width="10" x="449" y="169.6"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="584.2002" style="stroke:#A80036;stroke-width:1.0;" width="10" x="454" y="249.8"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="149.0001" style="stroke:#A80036;stroke-width:1.0;" width="10" x="459" y="409.8001"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="149.0001" style="stroke:#A80036;stroke-width:1.0;" width="10" x="459" y="635.0002"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="69.2" style="stroke:#A80036;stroke-width:1.0;" width="10" x="449" y="885.2003"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="29.6" style="stroke:#A80036;stroke-width:1.0;" width="10" x="680" y="493.6001"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="29.6" style="stroke:#A80036;stroke-width:1.0;" width="10" x="799.5" y="718.8002"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="211.2001" style="stroke:#000000;stroke-width:2.0;" width="532" x="411" y="362.6"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="211.2001" style="stroke:#000000;stroke-width:2.0;" width="452" x="411" y="587.8001"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="24" x2="24" y1="88.7999" y2="1002.0003"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="253" x2="253" y1="88.7999" y2="1002.0003"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="454" x2="454" y1="88.7999" y2="1002.0003"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="685" x2="685" y1="88.7999" y2="1002.0003"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="804" x2="804" y1="88.7999" y2="1002.0003"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="5" y="85.9999">client</text><ellipse cx="24" cy="15" fill="#FEFECE" filter="url(#frz5yaub5ie66)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M24,23 L24,50 M11,31 L37,31 M24,50 L11,65 M24,50 L37,65 " fill="none" filter="url(#frz5yaub5ie66)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#frz5yaub5ie66)" height="30.7999" style="stroke:#A80036;stroke-width:1.5;" width="102" x="200" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="207" y="73.9999">moleculer-web</text><rect fill="#FEFECE" filter="url(#frz5yaub5ie66)" height="30.7999" style="stroke:#A80036;stroke-width:1.5;" width="62" x="421" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="428" y="73.9999">todo-list</text><rect fill="#FEFECE" filter="url(#frz5yaub5ie66)" height="30.7999" style="stroke:#A80036;stroke-width:1.5;" width="118" x="624" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="631" y="73.9999">members-service</text><rect fill="#FEFECE" filter="url(#frz5yaub5ie66)" height="30.7999" style="stroke:#A80036;stroke-width:1.5;" width="93" x="756" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="763" y="73.9999">email-sender</text><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="853.8004" style="stroke:#A80036;stroke-width:1.0;" width="10" x="248" y="130.1999"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="686.0003" style="stroke:#A80036;stroke-width:1.0;" width="10" x="449" y="169.6"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="584.2002" style="stroke:#A80036;stroke-width:1.0;" width="10" x="454" y="249.8"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="149.0001" style="stroke:#A80036;stroke-width:1.0;" width="10" x="459" y="409.8001"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="149.0001" style="stroke:#A80036;stroke-width:1.0;" width="10" x="459" y="635.0002"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="69.2" style="stroke:#A80036;stroke-width:1.0;" width="10" x="449" y="885.2003"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="29.6" style="stroke:#A80036;stroke-width:1.0;" width="10" x="680" y="493.6001"/><rect fill="#FFFFFF" filter="url(#frz5yaub5ie66)" height="29.6" style="stroke:#A80036;stroke-width:1.0;" width="10" x="799.5" y="718.8002"/><polygon fill="#A80036" points="236,126.1999,246,130.1999,236,134.1999,240,130.1999" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="24" x2="242" y1="130.1999" y2="130.1999"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="205" x="31" y="125.5999">PUT /todo-service/update-and-notify</text><polygon fill="#FBFB77" filter="url(#frz5yaub5ie66)" points="273,103.7999,377,103.7999,387,122.7999,377,142.7999,273,142.7999,263,122.7999,273,103.7999" style="stroke:#A80036;stroke-width:1.0;"/><ellipse cx="280.5" cy="115.8999" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="26" x="287" y="120.7999">ID: 1</text><ellipse cx="280.5" cy="131.5" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="88" x="287" y="136.4">todo: 'new todo'</text><polygon fill="#A80036" points="437,165.6,447,169.6,437,173.6,441,169.6" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="258" x2="443" y1="169.6" y2="169.6"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="172" x="265" y="165">call update-and-notify-preflight</text><line style="stroke:#A80036;stroke-width:1.0;" x1="459" x2="501" y1="199.2" y2="199.2"/><line style="stroke:#A80036;stroke-width:1.0;" x1="501" x2="501" y1="199.2" y2="212.2"/><line style="stroke:#A80036;stroke-width:1.0;" x1="460" x2="501" y1="212.2" y2="212.2"/><polygon fill="#A80036" points="470,208.2,460,212.2,470,216.2,466,212.2" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="162" x="466" y="194.6">internal authorization checks</text><line style="stroke:#A80036;stroke-width:1.0;" x1="459" x2="506" y1="236.8" y2="236.8"/><line style="stroke:#A80036;stroke-width:1.0;" x1="506" x2="506" y1="236.8" y2="249.8"/><line style="stroke:#A80036;stroke-width:1.0;" x1="465" x2="506" y1="249.8" y2="249.8"/><polygon fill="#A80036" points="475,245.8,465,249.8,475,253.8,471,249.8" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="123" x="471" y="232.2">requestAuthorizations</text><polygon fill="#FBFB77" filter="url(#frz5yaub5ie66)" points="479,267.8,918,267.8,928,286.8,918,306.8,479,306.8,469,286.8,479,267.8" style="stroke:#A80036;stroke-width:1.0;"/><ellipse cx="486.5" cy="279.9" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="423" x="493" y="284.8">{ eventName: 'authz-is-member-of-todo-list', parameters: { userID, todoID } }</text><ellipse cx="486.5" cy="295.5" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="341" x="493" y="300.4">{ eventName: 'authz-can-send-email', parameters: { userID } }</text><rect fill="#EEEEEE" filter="url(#frz5yaub5ie66)" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="953" x="0" y="332.8"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="953" y1="332.8" y2="332.8"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="953" y1="335.8" y2="335.8"/><rect fill="#EEEEEE" filter="url(#frz5yaub5ie66)" height="23.6" style="stroke:#000000;stroke-width:2.0;" width="139" x="407" y="322"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="121" x="413" y="339">parallel processing</text><path d="M411,362.6 L633,362.6 L633,369.6 L623,379.6 L411,379.6 L411,362.6 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="211.2001" style="stroke:#000000;stroke-width:2.0;" width="532" x="411" y="362.6"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="177" x="426" y="376.6">authz-is-member-of-todo-list</text><line style="stroke:#A80036;stroke-width:1.0;" x1="464" x2="511" y1="396.8001" y2="396.8001"/><line style="stroke:#A80036;stroke-width:1.0;" x1="511" x2="511" y1="396.8001" y2="409.8001"/><line style="stroke:#A80036;stroke-width:1.0;" x1="470" x2="511" y1="409.8001" y2="409.8001"/><polygon fill="#A80036" points="480,405.8001,470,409.8001,480,413.8001,476,409.8001" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="52" x="476" y="392.2001">callEvent</text><polygon fill="#FBFB77" filter="url(#frz5yaub5ie66)" points="484,427.8001,923,427.8001,933,446.8001,923,466.8001,484,466.8001,474,446.8001,484,427.8001" style="stroke:#A80036;stroke-width:1.0;"/><ellipse cx="491.5" cy="439.9001" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="17" x="498" y="444.8001">ctx</text><ellipse cx="491.5" cy="455.5001" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="423" x="498" y="460.4001">{ eventName: 'authz-is-member-of-todo-list', parameters: { userID, todoID } }</text><polygon fill="#A80036" points="668,489.6001,678,493.6001,668,497.6001,672,493.6001" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="469" x2="674" y1="493.6001" y2="493.6001"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="192" x="476" y="489.0001">emit(authz-is-member-of-todo-list)</text><polygon fill="#A80036" points="480,519.2001,470,523.2001,480,527.2001,476,523.2001" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="474" x2="684" y1="523.2001" y2="523.2001"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="109" x="486" y="518.6001">eventCallback: true</text><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="469" x2="511" y1="557.8001" y2="557.8001"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="511" x2="511" y1="557.8001" y2="570.8001"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="464" x2="511" y1="570.8001" y2="570.8001"/><polygon fill="#A80036" points="474,566.8001,464,570.8001,474,574.8001,470,570.8001" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="30" x="476" y="553.2001">[true]</text><path d="M411,587.8001 L590,587.8001 L590,594.8001 L580,604.8001 L411,604.8001 L411,587.8001 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="211.2001" style="stroke:#000000;stroke-width:2.0;" width="452" x="411" y="587.8001"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="134" x="426" y="601.8001">authz-can-send-email</text><line style="stroke:#A80036;stroke-width:1.0;" x1="464" x2="511" y1="622.0002" y2="622.0002"/><line style="stroke:#A80036;stroke-width:1.0;" x1="511" x2="511" y1="622.0002" y2="635.0002"/><line style="stroke:#A80036;stroke-width:1.0;" x1="470" x2="511" y1="635.0002" y2="635.0002"/><polygon fill="#A80036" points="480,631.0002,470,635.0002,480,639.0002,476,635.0002" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="52" x="476" y="617.4002">callEvent</text><polygon fill="#FBFB77" filter="url(#frz5yaub5ie66)" points="484,653.0002,841,653.0002,851,672.0002,841,692.0002,484,692.0002,474,672.0002,484,653.0002" style="stroke:#A80036;stroke-width:1.0;"/><ellipse cx="491.5" cy="665.1002" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="17" x="498" y="670.0002">ctx</text><ellipse cx="491.5" cy="680.7002" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="341" x="498" y="685.6002">{ eventName: 'authz-can-send-email', parameters: { userID } }</text><polygon fill="#A80036" points="787.5,714.8002,797.5,718.8002,787.5,722.8002,791.5,718.8002" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="469" x2="793.5" y1="718.8002" y2="718.8002"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="155" x="476" y="714.2002">emit(authz-can-send-email)</text><polygon fill="#A80036" points="480,744.4002,470,748.4002,480,752.4002,476,748.4002" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="474" x2="803.5" y1="748.4002" y2="748.4002"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="109" x="486" y="743.8002">eventCallback: true</text><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="469" x2="511" y1="783.0002" y2="783.0002"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="511" x2="511" y1="783.0002" y2="796.0002"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="464" x2="511" y1="796.0002" y2="796.0002"/><polygon fill="#A80036" points="474,792.0002,464,796.0002,474,800.0002,470,796.0002" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="30" x="476" y="778.4002">[true]</text><rect fill="#EEEEEE" filter="url(#frz5yaub5ie66)" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="953" x="0" y="819.0002"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="953" y1="819.0002" y2="819.0002"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="953" y1="822.0002" y2="822.0002"/><polygon fill="#A80036" points="269,851.6002,259,855.6002,269,859.6002,265,855.6002" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="263" x2="453" y1="855.6002" y2="855.6002"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="22" x="275" y="851.0002">true</text><polygon fill="#A80036" points="437,881.2003,447,885.2003,437,889.2003,441,885.2003" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="258" x2="443" y1="885.2003" y2="885.2003"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="122" x="265" y="880.6003">call update-and-notify</text><path d="M464,898.2003 L464,923.2003 L584,923.2003 L584,908.2003 L574,898.2003 L464,898.2003 " fill="#FBFB77" filter="url(#frz5yaub5ie66)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M574,898.2003 L574,908.2003 L584,908.2003 L574,898.2003 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="99" x="470" y="916.2003">actual processing</text><polygon fill="#A80036" points="269,950.4003,259,954.4003,269,958.4003,265,954.4003" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="263" x2="453" y1="954.4003" y2="954.4003"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="135" x="275" y="949.8003">{ ID: 1, todo: 'new todo' }</text><polygon fill="#A80036" points="35,980.0003,25,984.0003,35,988.0003,31,984.0003" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="29" x2="252" y1="984.0003" y2="984.0003"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="159" x="41" y="979.4003">200 { ID: 1, todo: 'new todo' }</text><!--MD5=[961cce3da33db1857196ea11e0990f8f]
+@startuml
+hide footbox
+
+actor client
+participant web as "moleculer-web"
+participant todo as "todo-list"
+
+participant member as "members-service"
+participant email as "email-sender"
+
+client -> web: PUT /todo-service/update-and-notify
+hnote right
+* ID: 1
+* todo: 'new todo'
+end note
+
+activate web
+
+web -> todo: call update-and-notify-preflight
+activate todo
+
+todo -> todo: internal authorization checks
+
+todo -> todo: requestAuthorizations
+hnote right todo
+* { eventName: 'authz-is-member-of-todo-list', parameters: { userID, todoID } }
+* { eventName: 'authz-can-send-email', parameters: { userID } }
+end note
+activate todo
+
+== parallel processing ==
+group authz-is-member-of-todo-list
+
+todo -> todo: callEvent
+hnote right todo
+* ctx
+* { eventName: 'authz-is-member-of-todo-list', parameters: { userID, todoID } }
+end note
+activate todo
+
+todo - -> member: emit(authz-is-member-of-todo-list)
+activate member
+member - -> todo: eventCallback: true
+deactivate member
+todo - -> todo: [true]
+deactivate todo
+
+end
+
+group authz-can-send-email
+
+todo -> todo: callEvent
+hnote right todo
+* ctx
+* { eventName: 'authz-can-send-email', parameters: { userID } }
+end note
+activate todo
+
+
+todo - -> email: emit(authz-can-send-email)
+activate email
+email - -> todo: eventCallback: true
+deactivate email
+todo - -> todo: [true]
+deactivate todo
+
+end
+
+==  ==
+
+deactivate todo
+todo - -> web: true
+
+deactivate todo
+
+web -> todo: call update-and-notify
+activate todo
+
+note right todo
+actual processing
+end note
+
+todo - -> web: { ID: 1, todo: 'new todo' }
+deactivate todo
+
+web - -> client: 200 { ID: 1, todo: 'new todo' }
+
+deactivate web
+@enduml
+
+PlantUML version 1.2021.16(Wed Dec 08 17:25:22 GMT 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
