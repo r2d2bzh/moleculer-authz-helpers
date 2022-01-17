@@ -55,6 +55,10 @@ Currently, this library provides the following helpers:
 This helper adds a service mixin used to generate preflight actions for actions exposed through rest.
 It takes a Moleculer service schema as a parameter and returns the same service schema with the mixin added.
 
+This helper also adds the `callEventMixin` provided by https://www.npmjs.com/package/@r2d2bzh/moleculer-event-callback[@r2d2bzh/moleculer-event-callback].
+`callEventMixin` injects a `$$callEvent` method to make authorization requests.
+It also provides the callback action needed to receive the return value of authorization requests.
+
 NOTE: A preflight action takes the same parameters as the original action.
 
 To define a preflight handler, you must add a preflight attribute to an action:
@@ -132,6 +136,9 @@ The signature of `isAuthorized` is `(logger) => (answer) => true | false`:
 === `requestAuthorizations`
 
 This helper operates multiple authorization requests at once and returns a promise which result can be handled by `isAuthorized`.
+
+This helper uses the `$$callEvent` method provided by the `callEventMixin` of https://www.npmjs.com/package/@r2d2bzh/moleculer-event-callback[@r2d2bzh/moleculer-event-callback] (see `addPreflightMixin`).
+This allows the retrieval of authorization requests return values.
 
 [source,javascript]
 ----

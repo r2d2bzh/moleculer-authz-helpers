@@ -41,5 +41,8 @@
   "peerDependencies": {
     "lodash": "^4.17.21",
     "moleculer": "^0.14.0"
+  },
+  "dependencies": {
+    "@r2d2bzh/moleculer-event-callback": "~0.0.1"
   }
 }

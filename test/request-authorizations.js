@@ -2,22 +2,27 @@ import test from 'ava';
 import { ServiceBroker } from 'moleculer';
 import { v4 as uuid } from 'uuid';
 import { requestAuthorizations } from '../index.js';
+import { callEventMixin, callEventReturnDecorator } from '@r2d2bzh/moleculer-event-callback';
 
 test.beforeEach(async (t) => {
   t.context.broker = new ServiceBroker({ namespace: uuid(), logLevel: { '**': 'warn' } });
 
   t.context.broker.createService({
     name: 'events-stub',
+    mixins: [callEventMixin()],
     events: {
-      'return-boolean': {
+      'return-boolean': callEventReturnDecorator({
         params: {
           eventReturn: 'boolean',
         },
         handler: (ctx) => ctx.params.eventReturn,
-      },
-      return: {
+      }),
+      return: callEventReturnDecorator({
         handler: () => {},
-      },
+      }),
+    },
+    actions: {
+      'run-test': (ctx) => requestAuthorizations(ctx)(ctx.params.authorizationTests),
     },
   });
 
@@ -32,10 +37,12 @@ test.afterEach.always(async (t) => {
 
 test('send authorization requests', async (t) => {
   t.snapshot(
-    await requestAuthorizations(t.context.broker)([
-      { eventName: 'return-boolean', parameters: { eventReturn: true }, options: {} },
-      { eventName: 'return-boolean', parameters: { eventReturn: false }, options: {} },
-      { eventName: 'return', parameters: { eventReturn: false }, options: {} },
-    ])
+    await t.context.broker.call('events-stub.run-test', {
+      authorizationTests: [
+        { eventName: 'return-boolean', parameters: { eventReturn: true }, options: {} },
+        { eventName: 'return-boolean', parameters: { eventReturn: false }, options: {} },
+        { eventName: 'return', parameters: { eventReturn: false }, options: {} },
+      ],
+    })
   );
 });

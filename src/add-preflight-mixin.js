@@ -1,11 +1,12 @@
 import cloneDeep from 'lodash/cloneDeep.js';
 import moleculer from 'moleculer';
+import { callEventMixin } from '@r2d2bzh/moleculer-event-callback';
 
 const {
   Errors: { MoleculerError },
 } = moleculer;
 
-export const unsafeAddPreflightMixin = (serviceSchema) => {
+export const unsafeAddPreflightMixin = (serviceSchema, { timeout }) => {
   const actionsWithPreflight = Object.entries(serviceSchema.actions || {}).filter(
     ([, actionSpecification]) => actionSpecification?.preflight
   );
@@ -28,12 +29,13 @@ export const unsafeAddPreflightMixin = (serviceSchema) => {
     {
       actions: Object.fromEntries(preflightActions),
     },
+    callEventMixin({ timeout }),
   ];
 
   return schema;
 };
 
-export default (serviceSchema) => {
+export default (serviceSchema, { timeout = 200 } = {}) => {
   Object.entries(serviceSchema.actions || {})
     .filter(([, actionSpecification]) => actionSpecification?.rest && actionSpecification.rest?.authorization !== false)
     .forEach(([actionName, actionSpecification]) => {
@@ -42,5 +44,5 @@ export default (serviceSchema) => {
       }
     });
 
-  return unsafeAddPreflightMixin(serviceSchema);
+  return unsafeAddPreflightMixin(serviceSchema, { timeout });
 };
