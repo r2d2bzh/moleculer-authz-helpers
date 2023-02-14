@@ -1,5 +1,5 @@
 import test from 'ava';
-import { inspect } from 'util';
+import { inspect } from 'node:util';
 import { isAuthorized } from '../index.js';
 
 const getTitle = (testCase) => `should${testCase.expectation ? ' ' : ' not '}authorize: ${inspect(testCase.mock)}`;
@@ -8,6 +8,8 @@ const warn = (t) => ({
 });
 const testSuite = [
   { mock: undefined, expectation: false },
+  // intends to explicitly test null value
+  // eslint-disable-next-line unicorn/no-null
   { mock: null, expectation: false, warn },
   { mock: false, expectation: false },
   { mock: [], expectation: false },
@@ -24,6 +26,8 @@ const testSuite = [
   { mock: [false, [false, true, true]], expectation: false, warn },
   // Test answer for two concurrent authorization requests
   { mock: [[undefined], [true]], expectation: false },
+  // intends to explicitly test null value
+  // eslint-disable-next-line unicorn/no-null
   { mock: [[null], [true]], expectation: false, warn },
   { mock: [[true, true], [true]], expectation: true, warn },
   {
@@ -36,7 +40,7 @@ const testSuite = [
   },
 ];
 
-testSuite.forEach((testCase) =>
+for (const testCase of testSuite)
   test(getTitle(testCase), (t) => {
     if (testCase.warn) {
       t.plan(2);
@@ -44,8 +48,7 @@ testSuite.forEach((testCase) =>
     t.assert(
       isAuthorized(testCase.warn ? testCase.warn(t) : { warn: () => t.fail() })(testCase.mock) === testCase.expectation
     );
-  })
-);
+  });
 
 test('throws on missing logger', (t) => {
   t.snapshot(t.throws(() => isAuthorized()));
