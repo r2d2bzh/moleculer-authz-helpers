@@ -36,13 +36,14 @@ export const unsafeAddPreflightMixin = (serviceSchema, { timeout }) => {
 };
 
 export default (serviceSchema, { timeout = 200 } = {}) => {
-  Object.entries(serviceSchema.actions || {})
-    .filter(([, actionSpecification]) => actionSpecification?.rest && actionSpecification.rest?.authorization !== false)
-    .forEach(([actionName, actionSpecification]) => {
-      if (!(actionSpecification?.preflight instanceof Function || actionSpecification?.preflight?.handler)) {
-        throw new MoleculerError('missing preflight handler', 500, 'MISSING_PREFLIGHT', { actionName });
-      }
-    });
+  const authorizedActions = Object.entries(serviceSchema.actions || {}).filter(
+    ([, actionSpecification]) => actionSpecification?.rest && actionSpecification.rest?.authorization !== false
+  );
+  for (const [actionName, actionSpecification] of authorizedActions) {
+    if (!(actionSpecification?.preflight instanceof Function || actionSpecification?.preflight?.handler)) {
+      throw new MoleculerError('missing preflight handler', 500, 'MISSING_PREFLIGHT', { actionName });
+    }
+  }
 
   return unsafeAddPreflightMixin(serviceSchema, { timeout });
 };

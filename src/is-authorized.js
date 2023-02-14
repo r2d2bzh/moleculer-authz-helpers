@@ -1,13 +1,18 @@
 const removeUnanswered = (authzAnswers) => authzAnswers.filter((answer) => answer !== undefined);
 
-const reduceAnswers = (answers, reducer) =>
-  answers.length
-    ? answers.reduce(
-        ([authorizationStatus, authorizationsCount], answer) =>
-          reducer(answer, authorizationStatus, authorizationsCount),
-        [true, 0]
-      )
-    : [false, 0];
+const reduceAnswers = (answers, reducer) => {
+  if (answers.length > 0) {
+    let accumulator = [true, 0];
+
+    for (const answer of answers) {
+      const [authorizationStatus, authorizationsCount] = accumulator;
+      accumulator = reducer(answer, authorizationStatus, authorizationsCount);
+    }
+    return accumulator;
+  }
+
+  return [false, 0];
+};
 
 const onMultipleAuthorizations =
   (handle) =>
@@ -34,17 +39,21 @@ const processAndCountAnswer = (warn) => {
   const doAnswersAuthorize = processAndCountManyAnswers(warn);
   return function (answer, authorizationStatus = true, authorizationsCount = 0) {
     switch (Object.prototype.toString.call(answer)) {
-      case '[object Boolean]':
+      case '[object Boolean]': {
         return [authorizationStatus && answer, authorizationsCount + 1];
-      case '[object Array]':
+      }
+      case '[object Array]': {
         // A new array means a new authorization request with its own
         // answers count that does not reflect on the current one
         return [doAnswersAuthorize(answer, authorizationStatus), authorizationsCount];
-      case '[object Undefined]':
+      }
+      case '[object Undefined]': {
         return [false, authorizationsCount];
-      default:
+      }
+      default: {
         warn(`odd authorization answer (${answer})`);
         return [false, authorizationsCount];
+      }
     }
   };
 };
@@ -56,7 +65,7 @@ export default (logger) => {
       const [authorize] = doesAnswerAuthorizeAndWarn(answer);
       return authorize;
     };
-  } catch (e) {
+  } catch {
     throw new Error(`logger.warn must be a function`);
   }
 };

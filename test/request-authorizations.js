@@ -15,14 +15,14 @@ test.beforeEach(async (t) => {
         params: {
           eventReturn: 'boolean',
         },
-        handler: (ctx) => ctx.params.eventReturn,
+        handler: (context) => context.params.eventReturn,
       }),
       return: callEventReturnDecorator({
         handler: () => {},
       }),
     },
     actions: {
-      'run-test': (ctx) => requestAuthorizations(ctx)(ctx.params.authorizationTests),
+      'run-test': (context) => requestAuthorizations(context)(context.params.authorizationTests),
     },
   });
 

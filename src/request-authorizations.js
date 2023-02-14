@@ -1,6 +1,6 @@
-export default (ctx) => (requests) =>
+export default (context) => (requests) =>
   Promise.all(
     requests.map(({ eventName, parameters, options }) =>
-      ctx.service.$$callEvent(ctx, { eventName, payload: parameters, options })
+      context.service.$$callEvent(context, { eventName, payload: parameters, options })
     )
   );
