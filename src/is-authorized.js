@@ -25,7 +25,7 @@ const onMultipleAuthorizations =
 
 const processAndCountManyAnswers = (warn) => {
   const warnOnMultipleAuthorizations = onMultipleAuthorizations((authorizationsCount) =>
-    warn(`multiple answers to the same authorization request (${authorizationsCount})`)
+    warn(`multiple answers to the same authorization request`, { authorizationsCount })
   );
   return (answers, authorizationStatus) => {
     const newRequestIsAuthorized = warnOnMultipleAuthorizations(

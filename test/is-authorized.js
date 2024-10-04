@@ -4,7 +4,7 @@ import { isAuthorized } from '../index.js';
 
 const getTitle = (testCase) => `should${testCase.expectation ? ' ' : ' not '}authorize: ${inspect(testCase.mock)}`;
 const warn = (t) => ({
-  warn: (message) => t.snapshot(message),
+  warn: (message, detail) => t.snapshot({ message, detail }),
 });
 const testSuite = [
   { mock: undefined, expectation: false },
