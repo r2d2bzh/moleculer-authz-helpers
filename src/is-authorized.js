@@ -51,7 +51,7 @@ const processAndCountAnswer = (warn) => {
         return [false, authorizationsCount];
       }
       default: {
-        warn(`odd authorization answer (${answer})`);
+        warn(`odd authorization answer`, { answer });
         return [false, authorizationsCount];
       }
     }
