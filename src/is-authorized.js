@@ -1,3 +1,5 @@
+import { inspect } from 'node:util';
+
 const removeUnanswered = (authzAnswers) => authzAnswers.filter((answer) => answer !== undefined);
 
 const reduceAnswers = (answers, reducer) => {
@@ -51,7 +53,7 @@ const processAndCountAnswer = (warn) => {
         return [false, authorizationsCount];
       }
       default: {
-        warn(`odd authorization answer`, { answer });
+        warn(`odd authorization answer`, inspect(answer, { compact: true, depth: 5 }));
         return [false, authorizationsCount];
       }
     }
