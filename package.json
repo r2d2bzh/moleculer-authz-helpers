@@ -9,6 +9,10 @@
     "test": "c8 ava -v",
     "lint": "eslint ."
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r2d2bzh/moleculer-authz-helpers.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -42,7 +46,7 @@
     ]
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=20.0.0"
   },
   "peerDependencies": {
     "moleculer": "^0.14.35"
