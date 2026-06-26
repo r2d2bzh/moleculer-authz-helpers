@@ -46,7 +46,7 @@ for (const testCase of testSuite)
       t.plan(2);
     }
     t.assert(
-      isAuthorized(testCase.warn ? testCase.warn(t) : { warn: () => t.fail() })(testCase.mock) === testCase.expectation
+      isAuthorized(testCase.warn ? testCase.warn(t) : { warn: () => t.fail() })(testCase.mock) === testCase.expectation,
     );
   });
 

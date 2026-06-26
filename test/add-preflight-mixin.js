@@ -15,8 +15,8 @@ test('get a MISSING_PREFLIGHT when a preflight action is missing for an exposed 
             rest: {},
           },
         },
-      })
-    )
+      }),
+    ),
   );
 });
 
@@ -36,7 +36,7 @@ test('an exposed action is given a preflight', (t) => {
           },
         },
       },
-    })
+    }),
   );
 });
 
@@ -46,7 +46,7 @@ test('an unexposed action is not given a preflight', (t) => {
       actions: {
         'unexposed-action': {},
       },
-    })
+    }),
   );
 });
 

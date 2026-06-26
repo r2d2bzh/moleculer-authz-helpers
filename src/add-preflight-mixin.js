@@ -8,14 +8,14 @@ const {
 
 export const unsafeAddPreflightMixin = (serviceSchema, { timeout }) => {
   const actionsWithPreflight = Object.entries(serviceSchema.actions || {}).filter(
-    ([, actionSpecification]) => actionSpecification?.preflight
+    ([, actionSpecification]) => actionSpecification?.preflight,
   );
 
   const preflightActions = actionsWithPreflight.map(([actionName, { params, preflight } = {}]) => [
     `${actionName}-preflight`,
     {
-      handler: preflight instanceof Function ? preflight : preflight.handler,
-      ...(params ? { params } : {}),
+      handler: typeof preflight === 'function' ? preflight : preflight.handler,
+      ...(params && { params }),
     },
   ]);
 
@@ -37,10 +37,10 @@ export const unsafeAddPreflightMixin = (serviceSchema, { timeout }) => {
 
 export default (serviceSchema, { timeout = 200 } = {}) => {
   const authorizedActions = Object.entries(serviceSchema.actions || {}).filter(
-    ([, actionSpecification]) => actionSpecification?.rest && actionSpecification.rest?.authorization !== false
+    ([, actionSpecification]) => actionSpecification?.rest && actionSpecification.rest?.authorization !== false,
   );
   for (const [actionName, actionSpecification] of authorizedActions) {
-    if (!(actionSpecification?.preflight instanceof Function || actionSpecification?.preflight?.handler)) {
+    if (!(typeof actionSpecification?.preflight === 'function' || actionSpecification?.preflight?.handler)) {
       throw new MoleculerError('missing preflight handler', 500, 'MISSING_PREFLIGHT', { actionName });
     }
   }

@@ -43,6 +43,6 @@ test('send authorization requests', async (t) => {
         { eventName: 'return-boolean', parameters: { eventReturn: false }, options: {} },
         { eventName: 'return', parameters: { eventReturn: false }, options: {} },
       ],
-    })
+    }),
   );
 });

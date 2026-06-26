@@ -27,11 +27,11 @@ const onMultipleAuthorizations =
 
 const processAndCountManyAnswers = (warn) => {
   const warnOnMultipleAuthorizations = onMultipleAuthorizations((authorizationsCount) =>
-    warn(`multiple answers to the same authorization request`, { authorizationsCount })
+    warn(`multiple answers to the same authorization request`, { authorizationsCount }),
   );
   return (answers, authorizationStatus) => {
     const newRequestIsAuthorized = warnOnMultipleAuthorizations(
-      reduceAnswers(removeUnanswered(answers), processAndCountAnswer(warn))
+      reduceAnswers(removeUnanswered(answers), processAndCountAnswer(warn)),
     );
     return authorizationStatus && newRequestIsAuthorized;
   };
@@ -39,15 +39,15 @@ const processAndCountManyAnswers = (warn) => {
 
 const processAndCountAnswer = (warn) => {
   const doAnswersAuthorize = processAndCountManyAnswers(warn);
-  return function (answer, authorizationStatus = true, authorizationsCount = 0) {
+  return function (answer, isAuthorized = true, authorizationsCount = 0) {
     switch (Object.prototype.toString.call(answer)) {
       case '[object Boolean]': {
-        return [authorizationStatus && answer, authorizationsCount + 1];
+        return [isAuthorized && answer, authorizationsCount + 1];
       }
       case '[object Array]': {
         // A new array means a new authorization request with its own
         // answers count that does not reflect on the current one
-        return [doAnswersAuthorize(answer, authorizationStatus), authorizationsCount];
+        return [doAnswersAuthorize(answer, isAuthorized), authorizationsCount];
       }
       case '[object Undefined]': {
         return [false, authorizationsCount];
